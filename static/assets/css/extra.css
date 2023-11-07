@@ -1,0 +1,52 @@
+.header .header-left .logo{
+	display: inline-block;
+	line-height: 60px;
+}
+.header .header-left .logo-small {
+	display: inline-block;
+	line-height: 60px;
+}
+.header .header-left .logo img {
+    display: inline-flex;
+    max-width: 170px;
+    height: auto;
+}
+.header .header-left .logo-small img {
+    /* display: none; */
+	
+	max-width: 200px;
+	height: auto;
+}
+
+
+.sm-box .fab {
+    font-size: 80px;
+    position: absolute;
+    right: 15px;
+    bottom: 0px;
+}
+.sm-box {
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.github {
+    background-color: #28f615;
+    border: 1px solid #1dea57;
+}
+.linkedin {
+    background-color: #05b0ff;
+    border: 1px solid #0e72a2;
+}
+
+.fa-github {
+    color: #000001;
+    bottom: 5px !important;
+    right: 18px !important;
+}
+
+.fa-linkedin-in {
+    color: #0b5dff;
+    bottom: 5px !important;
+    right: 23px !important;
+}
