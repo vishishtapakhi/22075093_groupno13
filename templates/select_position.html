@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <title>Select Position</title>
+        <link rel="{% static 'shortcut icon" href="assets/our_img/LOGO.png' %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap">
+        <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/fontawesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/all.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/our_img/img.css' %}">
+    </head>
+    <body>
+        <div class="main-wrapper login-body">
+            <div class="login-wrapper">
+                <div class="container">
+                    {% include 'includes/messages.html' %}
+                    <div class="loginbox">
+                        <div class="login-left">
+                            <img class="img-fluid" src="{% static 'assets/our_img/NEWLOGO.png' %}" alt="Logo">
+                        </div>
+                        <div class="login-right">
+                            <div class="login-right-wrap">
+                                <h1>Select Your Position</h1>
+                                <form action="{% url 'select_position' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="form-group" >
+                                        <label for="position">Position:</label>
+                                        <select class="form-control" id="position" name="position">
+                                            <option value="" disabled selected>Select a Position</option>
+                                            <option value="TEACHER">TEACHER</option>
+                                            <option value="HOD">HOD</option>
+                                            <option value="STUDENT">STUDENT</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-block" type="submit">Continue</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'assets/js/popper.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'assets/js/script.js' %}"></script>
+    </body>
+</html>

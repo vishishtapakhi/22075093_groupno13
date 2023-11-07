@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+       <div class="card">
+          <div class="card-body">
+            <div class="page-header">
+               <div class="row align-items-center">
+                  <div class="col">
+                     <h3 class="page-title">Students</h3>
+                     <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Students</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+             <form method="post" action="{% url 'update_student' %}">
+                {% csrf_token %}
+                <div class="row">
+                   {% include 'includes/messages.html' %}
+                   <div class="col-12">
+                    <h5 class="form-title"><span>Edit Student</span></h5>
+                 </div>
+                 <input type="text" class="form-control" name="roll_number" value="{% for i in student %}{{i.id}}{% endfor %}" hidden>
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>First Name</label>
+                       <input type="text" class="form-control" name="first_name" value="{% for i in student %}{{i.first_name}}{% endfor %}">
+                    </div>
+                 </div>
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>Last Name</label>
+                       <input type="text" class="form-control" name="last_name" value="{% for i in student %}{{i.last_name}}{% endfor %}">
+                    </div>
+                 </div>
+                 <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                     <label>Gender</label>
+                     <select class="form-control" name="gender" value="{% for i in student %}{{i.gender}}{% endfor %}">
+                        <option>Select Gender</option>
+                        <option>Female</option>
+                        <option>Male</option>
+                        <option>Others</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                     <label>Roll Number</label>
+                     <input type="text" class="form-control" name="roll_number" value="{% for i in student %}{{i.roll_number}}{% endfor %}" readonly>
+                  </div>
+               </div>
+               <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                     <label>Username</label>
+                     <input type="text" class="form-control" name="username" value="{% for i in student %}{{i.username}}{% endfor %}">
+                  </div>
+               </div>
+               <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                     <label>Student Email</label>
+                     <input type="email" class="form-control" name="student_email" value="{% for i in student %}{{i.student_email}}{% endfor %}">
+                  </div>
+               </div><div class="col-12 col-sm-6">
+                  <div class="form-group">
+                     <label>Password</label>
+                     <input type="password" class="form-control" name="student_password" placeholder="fill only if you want to change password!">
+                  </div>
+               </div>
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>Mobile Number</label>
+                       <input type="tel" class="form-control" name="mobile_number" value="{% for i in student %}{{i.mobile_number}}{% endfor %}">
+                    </div>
+                 </div>
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>Address</label>
+                       <textarea class="form-control" name="address">{% for i in student %}{{i.address}}{% endfor %}</textarea>
+                    </div>
+                 </div>
+                 <div class="col-12">
+                    <button type="submit" class="btn btn-primary">UPDATE STUDENT</button>
+                 </div>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+ </div>
+{% endblock %}

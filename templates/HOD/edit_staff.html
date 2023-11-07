@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+       <div class="card">
+          <div class="card-body">
+            <div class="page-header">
+               <div class="row align-items-center">
+                  <div class="col">
+                     <h3 class="page-title">Staff</h3>
+                     <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Staff</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+             <form method="post" action="{% url 'update_staff' %}">
+                {% csrf_token %}
+                <div class="row">
+                   {% include 'includes/messages.html' %}
+                   <div class="col-12">
+                    <h5 class="form-title"><span>Edit Staff</span></h5>
+                 </div>
+                 <input type="text" class="form-control" name="id" value="{{staff.id}}" hidden>
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>First Name</label>
+                       <input type="text" class="form-control" name="first_name" value="{{staff.first_name}}">
+                    </div>
+                 </div>
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>Last Name</label>
+                       <input type="text" class="form-control" name="last_name" value="{{staff.last_name}}">
+                    </div>
+                 </div>
+                 <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                     <label>Gender</label>
+                     <select class="form-control" name="gender" value="staff.gender">
+                        <option>Select Gender</option>
+                        <option>Female</option>
+                        <option>Male</option>
+                        <option>Others</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                     <label>Username</label>
+                     <input type="text" class="form-control" name="username" value="{{staff.username}}" readonly>
+                  </div>
+               </div>
+               <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                     <label>Staff Email</label>
+                     <input type="email" class="form-control" name="staff_email" value="{{staff.staff_email}}" readonly>
+                  </div>
+               </div><div class="col-12 col-sm-6">
+                  <div class="form-group">
+                     <label>Password</label>
+                     <input type="password" class="form-control" name="staff_password" placeholder="fill only if you want to change password!">
+                  </div>
+               </div>
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>Mobile Number</label>
+                       <input type="tel" class="form-control" name="mobile_number" value="{{staff.mobile_number}}">
+                    </div>
+                 </div>
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>Address</label>
+                       <textarea class="form-control" name="address">{{staff.address}}</textarea>
+                    </div>
+                 </div>
+                 <div class="col-12">
+                    <button type="submit" class="btn btn-primary">UPDATE STAFF</button>
+                 </div>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+ </div>
+{% endblock %}

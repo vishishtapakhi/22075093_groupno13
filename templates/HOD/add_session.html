@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    
+    <div class="col-sm-12">
+        
+       <div class="card">
+          <div class="card-body">
+            <div class="page-header">
+                <div class="row align-items-center">
+            <div class="col">
+                <h3 class="page-title">Session</h3>
+                <ul class="breadcrumb">
+                   <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
+                   <li class="breadcrumb-item active">Add Session</li>
+                </ul>
+             </div>
+            </div>
+         </div>
+             <form method="post" action="{% url 'add_session' %}">
+                
+            
+                {% csrf_token %}
+                
+                <div class="row">
+                    
+                   {% include 'includes/messages.html' %}
+                   <div class="col-12">
+                    <h5 class="form-title"><span>Session Information</span></h5>
+                 </div>
+                 <div class="col-12 col-sm-12">
+                    <div class="form-group">
+                       <label>Session Year Start</label>
+                       <input type="date" class="form-control" name="session_year_start" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Session Year End</label>
+                        <input type="date" class="form-control" name="session_year_end" required>
+                     </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">ADD Session</button>
+                     </div>
+                 </div>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+ </div>
+{% endblock  %}

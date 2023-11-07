@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="user-profile">
+    <h1> &nbsp;&nbsp;&nbsp;My Profile </h1>
+    <div class="row">
+    <br>
+    <br>
+    <img class="rounded-circle" src="{% if user.profile_pic %}{{ user.profile_pic.url }}{% else %}{% static 'assets/img/noIMG.jpeg' %}{% endif %}" width="275" height="275" alt="{{ student.first_name }} {{ student.last_name }}">
+    <div class="col">
+    <h2>{{ student.first_name }} {{ student.last_name }}</h2>
+    <br>
+    <h4><p>Roll Number:&nbsp; {{ student.roll_number }}</p>
+    <p>Gender:&nbsp; {{ student.gender }}</p>
+    <p>Email:&nbsp; {{ student.student_email }}</p>
+    <p>Course:&nbsp; {{ student.course_id}}</p>
+    <p>Session Year:&nbsp; {{student.session_year_id}}</p></h4>
+    </div>
+</div>
+    <!-- Add more related information here such as mobile number, parent's names, etc. -->
+</div>
+{% endblock %}
